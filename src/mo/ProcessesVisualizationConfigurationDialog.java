@@ -5,6 +5,16 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class ProcessesVisualizationConfigurationDialog extends JDialog implements DocumentListener {
+
+    private VisualizationConfiguration temporalConfig;
+
+
+    public VisualizationConfiguration getTemporalConfig() {
+        return temporalConfig;
+    }
+
+
+
     /**
      * Gives notification that there was an insert into the document.  The
      * range given by the DocumentEvent bounds the freshly inserted region.

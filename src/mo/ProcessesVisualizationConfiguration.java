@@ -9,6 +9,16 @@ import java.util.List;
 
 public class ProcessesVisualizationConfiguration implements VisualizableConfiguration {
 
+    private VisualizationConfiguration temporalConfig;
+
+    public ProcessesVisualizationConfiguration(VisualizationConfiguration temporalConfig) {
+        this.temporalConfig = temporalConfig;
+    }
+
+    public VisualizationConfiguration getTemporalConfig() {
+        return temporalConfig;
+    }
+
     @Override
     public List<String> getCompatibleCreators() {
         return null;
