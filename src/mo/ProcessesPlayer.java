@@ -2,7 +2,18 @@ package mo;
 
 import mo.visualization.Playable;
 
+import java.io.File;
+
 public class ProcessesPlayer implements Playable {
+
+    private File file;
+    private long start;
+    private long end;
+
+
+    public ProcessesPlayer(File file) {
+        this.file = file;
+    }
 
     @Override
     public long getStart() {

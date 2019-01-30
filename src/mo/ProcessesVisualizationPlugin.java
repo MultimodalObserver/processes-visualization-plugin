@@ -13,6 +13,7 @@ import mo.visualization.VisualizableConfiguration;
 import mo.visualization.VisualizationProvider;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -48,11 +49,10 @@ public class ProcessesVisualizationPlugin implements VisualizationProvider {
     @Override
     public Configuration initNewConfiguration(ProjectOrganization projectOrganization) {
         ProcessesVisualizationConfigurationDialog configDialog = new ProcessesVisualizationConfigurationDialog();
-        /* configDialog.showDialog();
+        configDialog.showDialog();
         if(!configDialog.isAccepted()){
             return null;
         }
-        */
         ProcessesVisualizationConfiguration configuration = new ProcessesVisualizationConfiguration(configDialog.getTemporalConfig());
         this.configurations.add(configuration);
         return configuration;
@@ -65,6 +65,22 @@ public class ProcessesVisualizationPlugin implements VisualizationProvider {
 
     @Override
     public StagePlugin fromFile(File file) {
+        if (file.isFile()) {
+            try {
+                ProcessesVisualizationPlugin processesVisualizationPlugin = new ProcessesVisualizationPlugin();
+                XElement root = XIO.readUTF(new FileInputStream(file));
+                XElement[] pathsX = root.getElements("path");
+                for (XElement pathX : pathsX) {
+                    String path = pathX.getString();
+                    File archive = new File(file.getParentFile(), path);
+                    Configuration config = new ProcessesVisualizationConfiguration(archive);
+                    processesVisualizationPlugin.configurations.add(config);
+                }
+                return processesVisualizationPlugin;
+            } catch (IOException ex) {
+                logger.log(Level.SEVERE, null, ex);
+            }
+        }
         return null;
     }
 
