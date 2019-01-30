@@ -67,10 +67,9 @@ public class ProcessesVisualizationConfiguration implements VisualizableConfigur
 
     @Override
     public Playable getPlayer() {
-        if(this.player != null || this.files.isEmpty()){
-            return null;
+        if(this.player == null){
+            this.player = new ProcessesPlayer(this.files.get(0));
         }
-        this.player = new ProcessesPlayer(this.files.get(0));
         return this.player;
     }
 

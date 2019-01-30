@@ -13,6 +13,7 @@ public class ProcessesPlayer implements Playable {
 
     public ProcessesPlayer(File file) {
         this.file = file;
+
     }
 
     @Override
