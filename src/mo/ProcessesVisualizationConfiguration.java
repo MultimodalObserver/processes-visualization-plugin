@@ -54,7 +54,7 @@ public class ProcessesVisualizationConfiguration implements VisualizableConfigur
         }
         this.files.add(file);
         int fileIndex = files.size() - 1;
-        this.player = new ProcessesPlayer(this.files.get(fileIndex));
+        this.player = new ProcessesPlayer(this.files.get(fileIndex), this.temporalConfig.getName());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class ProcessesVisualizationConfiguration implements VisualizableConfigur
     @Override
     public Playable getPlayer() {
         if(this.player == null){
-            this.player = new ProcessesPlayer(this.files.get(0));
+            this.player = new ProcessesPlayer(this.files.get(0), this.temporalConfig.getName());
         }
         return this.player;
     }
