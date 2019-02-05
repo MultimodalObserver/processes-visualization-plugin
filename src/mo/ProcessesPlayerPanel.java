@@ -27,6 +27,10 @@ public class ProcessesPlayerPanel extends JPanel {
     private static final String[] TABLE_HEADERS = {"PID", "Username",
             "Start instant", "Total CPU Duration", "command", "Parent PID"};
 
+    public ProcessesPlayerPanel(){
+        this.table = null;
+        this.scrollPane = null;
+    }
 
     public void createTable(JsonObject processesSnapshotData){
         Object[][] formattedProcessesData = this.parseData(processesSnapshotData);
@@ -62,7 +66,11 @@ public class ProcessesPlayerPanel extends JPanel {
     }
 
     public void removeTable(){
-        this.remove(this.table);
-        this.setVisible(false);
+        if(this.scrollPane == null){
+            return;
+        }
+        this.remove(this.scrollPane);
+        this.scrollPane = null;
+        this.table = null;
     }
 }

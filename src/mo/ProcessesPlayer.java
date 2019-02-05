@@ -64,11 +64,14 @@ public class ProcessesPlayer implements Playable {
         }
         else if(l == this.start){
             LOGGER.log(Level.SEVERE, "Creando tabla");
+            this.panel.removeTable();
             this.panel.createTable(processesSnapshot);
             return;
         }
-        LOGGER.log(Level.SEVERE, "Actualizando tabla");
-        this.panel.updateData(processesSnapshot);
+        else if(l > this.start && l <= this.end){
+            LOGGER.log(Level.SEVERE, "Actualizando tabla");
+            this.panel.updateData(processesSnapshot);
+        }
     }
 
     @Override
@@ -83,7 +86,6 @@ public class ProcessesPlayer implements Playable {
 
     @Override
     public void stop() {
-        this.panel.removeTable();
     }
 
     @Override
