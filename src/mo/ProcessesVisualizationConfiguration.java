@@ -43,7 +43,7 @@ public class ProcessesVisualizationConfiguration implements VisualizableConfigur
 
     @Override
     public List<String> getCompatibleCreators() {
-        String[] array = {"mo.controllers.ProcessRecorder"};
+        String[] array = {"mo.plugin.ProcessRecorder"};
         return Arrays.asList(array);
     }
 
