@@ -1,8 +1,9 @@
-package mo;
+package mo.plugin.views;
 
 
 import mo.core.I18n;
 import mo.core.ui.Utils;
+import mo.plugin.models.VisualizationConfiguration;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -21,7 +22,7 @@ public class ProcessesVisualizationConfigurationDialog extends JDialog implement
     private JButton saveConfigButton;
     private I18n i18n;
 
-    ProcessesVisualizationConfigurationDialog(){
+    public ProcessesVisualizationConfigurationDialog(){
         super(null,"", Dialog.ModalityType.APPLICATION_MODAL);
         this.temporalConfig = null;
         this.accepted = false;

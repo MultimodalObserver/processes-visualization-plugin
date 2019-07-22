@@ -1,6 +1,7 @@
-package mo;
+package mo.plugin;
 
 import mo.organization.Configuration;
+import mo.plugin.models.VisualizationConfiguration;
 import mo.visualization.Playable;
 import mo.visualization.VisualizableConfiguration;
 
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class ProcessesVisualizationConfiguration implements VisualizableConfiguration {
@@ -43,7 +43,7 @@ public class ProcessesVisualizationConfiguration implements VisualizableConfigur
 
     @Override
     public List<String> getCompatibleCreators() {
-        String[] array = {"mo.plugin.ProcessRecorder"};
+        String[] array = {"mo.capture.process.plugin.ProcessRecorder"};
         return Arrays.asList(array);
     }
 
@@ -54,6 +54,8 @@ public class ProcessesVisualizationConfiguration implements VisualizableConfigur
         }
         this.files.add(file);
         int fileIndex = files.size() - 1;
+        /* Aqui deberíamos agregar un archivo para visualizar al player ya creado
+        * Por ahora se esta creando un player por archivo, que también tiene sentido*/
         this.player = new ProcessesPlayer(this.files.get(fileIndex), this.temporalConfig.getName());
     }
 

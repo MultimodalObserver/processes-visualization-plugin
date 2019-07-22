@@ -1,15 +1,14 @@
-package mo;
+package mo.plugin;
 
 import bibliothek.util.xml.XElement;
 import bibliothek.util.xml.XIO;
-import mo.communication.streaming.capture.PluginCaptureListener;
 import mo.core.I18n;
 import mo.core.plugin.Extends;
 import mo.core.plugin.Extension;
 import mo.organization.Configuration;
 import mo.organization.ProjectOrganization;
 import mo.organization.StagePlugin;
-import mo.visualization.VisualizableConfiguration;
+import mo.plugin.views.ProcessesVisualizationConfigurationDialog;
 import mo.visualization.VisualizationProvider;
 
 import java.io.File;
