@@ -32,7 +32,6 @@ public class ProcessesVisualizationConfigurationDialog extends JDialog implement
         this.configurationNameTextField = new JTextField();
         this.configurationNameErrorLabel = new JLabel(this.i18n.s("configurationNameErrorLabelText"));
         this.saveConfigButton = new JButton(this.i18n.s("saveConfigButtonText"));
-        this.centerComponents();
         this.addComponents();
         this.addActionListeners();
     }

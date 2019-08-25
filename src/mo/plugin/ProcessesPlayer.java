@@ -1,8 +1,6 @@
 package mo.plugin;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import mo.core.ui.dockables.DockableElement;
 import mo.core.ui.dockables.DockablesRegistry;
 import mo.plugin.models.Process;
@@ -103,9 +101,14 @@ public class ProcessesPlayer implements Playable {
         try {
             FileReader fileReader = new FileReader(file.getAbsolutePath());
             BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String lineSeparator = System.getProperty("line.separator");
             String line;
             while((line = bufferedReader.readLine()) != null){
-                line = line.replace("\n", "");
+                line = line.replace(",", "");
+                line = line.replace(lineSeparator, "");
+                if(line.isEmpty()){
+                    continue;
+                }
                 Snapshot snapshot = this.gson.fromJson(line, Snapshot.class);
                 snapshots.add(snapshot);
             }
