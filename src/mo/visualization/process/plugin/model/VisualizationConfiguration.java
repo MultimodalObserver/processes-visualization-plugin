@@ -1,4 +1,4 @@
-package mo.plugin.models;
+package mo.visualization.process.plugin.model;
 
 public class VisualizationConfiguration {
     private String name;

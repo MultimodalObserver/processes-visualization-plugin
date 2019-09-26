@@ -1,7 +1,7 @@
-package mo.plugin;
+package mo.visualization.process.plugin;
 
 import mo.organization.Configuration;
-import mo.plugin.models.VisualizationConfiguration;
+import mo.visualization.process.plugin.model.VisualizationConfiguration;
 import mo.visualization.Playable;
 import mo.visualization.VisualizableConfiguration;
 

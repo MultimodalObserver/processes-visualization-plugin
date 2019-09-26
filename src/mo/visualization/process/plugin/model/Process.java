@@ -1,4 +1,4 @@
-package mo.plugin.models;
+package mo.visualization.process.plugin.model;
 
 public class Process {
 
@@ -10,7 +10,7 @@ public class Process {
     private long parentPid;
     private int hasChildren;
     private int supportsNormalTermination;
-    private long captureMilliseconds;
+    private long captureTimestamp;
 
 
     public Process() {
@@ -19,7 +19,7 @@ public class Process {
     public Process(String csvLine){
         String[] fields = csvLine.split(",");
         this.pid = Long.parseLong(fields[0]);
-        this.captureMilliseconds = Long.parseLong(fields[1]);
+        this.captureTimestamp = Long.parseLong(fields[1]);
         this.userName = fields[2];
         this.startInstant = fields[3];
         this.totalCpuDuration = Long.parseLong(fields[4]);
@@ -93,11 +93,11 @@ public class Process {
         this.supportsNormalTermination = supportsNormalTermination;
     }
 
-    public long getCaptureMilliseconds() {
-        return captureMilliseconds;
+    public long getCaptureTimestamp() {
+        return captureTimestamp;
     }
 
-    public void setCaptureMilliseconds(long captureMilliseconds) {
-        this.captureMilliseconds = captureMilliseconds;
+    public void setCaptureTimestamp(long captureTimestamp) {
+        this.captureTimestamp = captureTimestamp;
     }
 }
