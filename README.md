@@ -1,4 +1,4 @@
-# MO Processes Capture Plugin
+# MO Processes Visualization Plugin
 
 Developed by Abraham Cerda (abraham.cerda@usach.cl).
 
