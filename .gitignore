@@ -109,4 +109,6 @@ hs_err_pid*
 #test execution result
 output.txt
 
+.idea/
+
 # End of https://www.gitignore.io/api/java,intellij+iml
